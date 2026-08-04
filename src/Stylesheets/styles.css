@@ -1,0 +1,420 @@
+/* =========================================================================
+   Let Me Hit That — Nightlife Vending
+   Theme: "lit sign in a dark room"
+   Drop this in as your index.css (or import after it). Class names match
+   your existing Home.jsx / NavBar.jsx so it works with minimal markup changes.
+   ========================================================================= */
+
+:root {
+  /* --- surfaces --- */
+  --ink:        #07060c;   /* page background, near-black w/ faint violet */
+  --ink-2:      #0c0a15;   /* alternate section band */
+  --panel:      #141020;   /* card background */
+  --panel-2:    #1b1531;   /* card background on hover */
+  --line:       rgba(255, 255, 255, 0.08);
+  --line-2:     rgba(255, 255, 255, 0.16);
+
+  /* --- text --- */
+  --fg:         #f3eef9;   /* headings */
+  --fg-body:    #b8b1c8;   /* body copy */
+  --fg-muted:   #7d7692;   /* captions / kickers */
+
+  /* --- neon accents (pulled from the logo) --- */
+  --pink:       #ff2e97;
+  --pink-lite:  #ff6dc0;
+  --violet:     #a24bff;
+  --pink-glow:   rgba(255, 46, 151, 0.55);
+  --violet-glow: rgba(162, 75, 255, 0.40);
+
+  --radius:     16px;
+  --radius-sm:  10px;
+  --maxw:       1120px;
+
+  --display: 'Archivo', system-ui, 'Segoe UI', sans-serif;
+  --sans:    'Figtree', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 400 18px/1.6 var(--sans);
+  color: var(--fg-body);
+  background: var(--ink);
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (max-width: 1024px) { :root { font-size: 16px; } }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 500px at 78% -8%, var(--violet-glow), transparent 60%),
+    radial-gradient(1000px 600px at 10% 4%, rgba(255, 46, 151, 0.14), transparent 55%),
+    var(--ink);
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+h1, h2, h3 { color: var(--fg); font-family: var(--display); line-height: 1.05; margin: 0; }
+
+/* Reusable neon divider — echoes the light streak under the logo text */
+.neonRule,
+.faqs::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: min(560px, 80%);
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--pink), var(--pink-lite), var(--pink), transparent);
+  box-shadow: 0 0 12px 1px var(--pink-glow);
+}
+
+/* =========================== NAV BAR =========================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem clamp(1rem, 4vw, 2.5rem);
+  background: color-mix(in srgb, var(--ink) 72%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.navbar .brand img,
+.navbar ul li img { height: 46px; width: auto; cursor: pointer; }
+
+.navbar ul,
+.navbar .navLinks {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1.6rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar a {
+  font-weight: 600;
+  color: var(--fg-body);
+  padding: 0.45rem 0.2rem;
+  transition: color 0.18s ease;
+}
+.navbar a:hover { color: var(--fg); }
+
+.navbar .navCta {
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink), var(--violet));
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 8px 24px -8px var(--pink-glow);
+}
+.navbar .navCta:hover { color: #fff; filter: brightness(1.08); }
+
+/* =========================== HERO ============================= */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: clamp(3rem, 8vw, 6rem) 1.25rem clamp(2.5rem, 6vw, 4rem);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* The pixel machine, framed like a lit unit standing in the dark */
+.GIFContainer {
+  width: min(720px, 74vw);
+  margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(255, 46, 151, 0.10), transparent 60%),
+    var(--panel);
+  border: 1px solid var(--line-2);
+  box-shadow:
+    0 0 0 1px rgba(255, 46, 151, 0.25),
+    0 0 40px -6px var(--pink-glow),
+    inset 0 0 60px -30px var(--violet-glow);
+  position: relative;
+  z-index: 2;
+}
+.GIFContainer img {
+  width: 100%;
+  image-rendering: pixelated; /* keep the pixel art crisp when scaled */
+}
+
+.hero h1,
+.textContainer > h1 {
+  font-size: clamp(2.2rem, 6.5vw, 4.4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  max-width: 15ch;
+  margin: 0 auto;
+  text-shadow: 0 0 22px rgba(255, 46, 151, 0.25);
+}
+.hero h1 .accent,
+.textContainer > h1 .accent {
+  color: var(--pink);
+  text-shadow: 0 0 18px var(--pink-glow);
+}
+
+.heroSub {
+  max-width: 60ch;
+  margin: 1.1rem auto 0;
+  font-size: 1.075rem;
+  color: var(--fg-body);
+}
+
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btnPrimary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink), var(--violet));
+  box-shadow: 0 10px 30px -10px var(--pink-glow), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.btnPrimary:hover { filter: brightness(1.08); }
+.btnGhost {
+  color: var(--fg);
+  border: 1px solid var(--line-2);
+  background: rgba(255, 255, 255, 0.02);
+}
+.btnGhost:hover { border-color: var(--pink); color: #fff; }
+
+/* ====================== BODY WRAPPER ========================== */
+.textContainer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+/* ==================== VALUE-PROP CARDS ======================== */
+.informationContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: clamp(2.5rem, 6vw, 4rem) 0;
+}
+
+.informationBox {
+  position: relative;
+  padding: 1.6rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  transition: transform 0.2s ease, border-color 0.2s ease,
+              box-shadow 0.2s ease, background 0.2s ease;
+}
+.informationBox:hover {
+  transform: translateY(-3px);
+  background: var(--panel-2);
+  border-color: rgba(255, 46, 151, 0.55);
+  box-shadow: 0 0 34px -8px var(--pink-glow);
+}
+
+/* the little category kicker sits above the h2 via a data attribute */
+.informationBox[data-kicker]::before {
+  content: attr(data-kicker);
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+
+.informationBox h2 {
+  font-size: 1.32rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.informationBox .Onesentence {
+  margin: 0.55rem 0 0.7rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+.informationBox .information p {
+  margin: 0;
+  font-size: 0.96rem;
+  color: var(--fg-body);
+}
+
+/* ======================= GALLERY ============================= */
+.imgGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  margin: clamp(2rem, 5vw, 3.5rem) 0;
+}
+.imgGallery .shot {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--line-2);
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 12px, transparent 12px 24px),
+    var(--ink-2);
+  display: grid;
+  place-items: center;
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+/* ========================= FAQ ============================== */
+.faqs {
+  max-width: 780px;
+  margin: clamp(3rem, 7vw, 5rem) auto;
+  text-align: center;
+}
+.faqs::before { margin-bottom: 2.25rem; }
+.faqs > h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+/* works whether .faq is a <div> or a <details> element */
+.faq {
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+  padding: 1.05rem 1.25rem;
+  margin: 0.7rem 0;
+  transition: border-color 0.2s ease;
+}
+.faq:hover { border-color: var(--line-2); }
+.faq h3,
+.faq > summary {
+  font-family: var(--display);
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--fg);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq > summary::-webkit-details-marker { display: none; }
+.faq > summary::after {
+  content: "+";
+  color: var(--pink);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.faq[open] > summary::after { transform: rotate(45deg); }
+.faq p {
+  margin: 0.8rem 0 0;
+  font-size: 0.96rem;
+  color: var(--fg-body);
+}
+
+/* ======================= FOOTER ============================= */
+.bottomBar {
+  border-top: 1px solid var(--line);
+  margin-top: clamp(3rem, 8vw, 6rem);
+  padding: 2.5rem clamp(1rem, 4vw, 2rem);
+  background: var(--ink-2);
+}
+.bottomBarContent {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.bottomBarItem {
+  color: var(--fg-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.18s ease;
+}
+.bottomBarItem:hover { color: var(--pink); }
+
+/* ==================== MOTION / A11Y ========================= */
+.reveal { opacity: 0; transform: translateY(14px); }
+.reveal.in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
+
+:focus-visible { outline: 2px solid var(--pink-lite); outline-offset: 3px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+.imgLabel{
+  font-size: larger;
+  -webkit-text-stroke: .5px blueviolet;
+}
+
+.smoke-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-80%) translateY(-8%);
+  width: 1080px;
+  height: 1080px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.smoke-container span {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  /* soft radial edge reads more like vapor than a hard-blurred disc */
+  background: radial-gradient(circle at 50% 50%,
+              rgba(205, 185, 225, 0.5),
+              rgba(205, 185, 225, 0) 70%);
+  border-radius: 50%;
+  filter: none;
+  opacity: 1;
+  animation: rise var(--dur) linear infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes rise {
+  0% {
+    transform: translateX(calc(-50% + var(--x))) translateY(0) scale(0.4);
+    opacity: 0;
+  }
+  15% { opacity: 0.6; }
+  60% { opacity: 0.35; }
+  100% {
+    transform: translateX(calc(-50% + var(--x) + var(--drift)))
+               translateY(-240px)
+               scale(var(--scale));
+    opacity: 0;
+  }
+}
