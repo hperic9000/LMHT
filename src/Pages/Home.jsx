@@ -5,7 +5,12 @@ import finalMB from '../assets/MonkeyBar.jpeg'
 import screenPic from '../assets/OpenMachineScreen.jpg'
 import wrap from '../assets/MachineWrap.jpg'
 
-function Home() {
+function Home({setPage}) {
+
+  const go = (page) => (e) => {
+        e.preventDefault()
+        setPage(page)
+    }
 
   return (
     <>
@@ -18,11 +23,10 @@ function Home() {
 
         <h1>Vending machines built for <span className="accent">bars &amp; clubs</span></h1>
         <p className="heroSub">
-          Age-verified, fully managed, and zero cost to your venue. We install it, stock it,
-          and keep it running — so your guests get what they want without ever leaving the room.
+          Managed by our team, stocked with premium products, Age-verified, and designed to keep your guests happy without ever leaving the room.
         </p>
         <div className="heroCtas">
-          <a className="btn btnPrimary" href="/contact">work with me</a>
+          <a className="btn btnPrimary" href="/contact" onClick={go('contact')}>Work with me</a>
           <a className="btn btnGhost" href="#why">See why it works</a>
         </div>
       </header>
@@ -32,57 +36,27 @@ function Home() {
 
         <div className="informationContainer">
           <div className="informationBox" data-kicker="Managed">
-            <h2>Zero Operational Involvement</h2>
-            <div className="Onesentence">Installed, monitored, and managed by our team.</div>
+            <h2>Managed By Our Team</h2>
+            <div className="Onesentence">No operational involvement required.</div>
             <div className="information">
               <p>Our team handles installation, monitoring, and management, so your machines run
                  smoothly without adding anything to your staff's plate.</p>
             </div>
           </div>
 
-          <div className="informationBox" data-kicker="Cost">
-            <h2>No Upfront Cost to the Venue</h2>
-            <div className="Onesentence">Add a modern amenity without spending a dollar.</div>
-            <div className="information">
-              <p>No purchase, no lease, no capital from your business. Equipment, inventory,
-                 licensing, servicing, and management are fully covered — you provide a bit of
-                 space and a standard power outlet.</p>
-            </div>
-          </div>
-
           <div className="informationBox" data-kicker="Compliance">
-            <h2>Built-In Age Controls</h2>
+            <h2>Automatic age Verification</h2>
             <div className="Onesentence">Designed for 21+ environments.</div>
             <div className="information">
-              <p>Every transaction passes through secure age-verification technology, helping
-                 safeguard your license while keeping activity clean, logged, and compliant.</p>
-            </div>
-          </div>
-
-          <div className="informationBox" data-kicker="Inventory">
-            <h2>Actively Managed Inventory</h2>
-            <div className="Onesentence">Always stocked based on real demand.</div>
-            <div className="information">
-              <p>Usage data guides restocking and product selection, so guests get what they want
-                 without stepping outside — cutting out the exits that end nights early.</p>
+              <p>Our age verification system ensures compliance with all applicable laws and regulations, providing peace of mind for your venue.</p>
             </div>
           </div>
 
           <div className="informationBox" data-kicker="Brand">
-            <h2>Elevate Your Venue's Image</h2>
-            <div className="Onesentence">Seen as progressive, not outdated.</div>
+            <h2>Keep Your Customers at Your Venue</h2>
+            <div className="Onesentence">Create a seamless experience that keeps guests engaged.</div>
             <div className="information">
-              <p>A secure, touchscreen vending experience signals that your venue invests in modern
-                 solutions and guest convenience — the forward-thinking brand today's customers expect.</p>
-            </div>
-          </div>
-
-          <div className="informationBox" data-kicker="Support">
-            <h2>Real Support, Real Accountability</h2>
-            <div className="Onesentence">You deal with people — not a call center.</div>
-            <div className="information">
-              <p>Direct access to our team, fast response times, and real ownership over every
-                 location we place.</p>
+              <p>Creating a seamless experience that keeps guests engaged by providing a modern, convenient, and enjoyable service.</p>
             </div>
           </div>
         </div>
