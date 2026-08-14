@@ -2,7 +2,7 @@ import React from 'react'
 import SmokeEffect from '../Elements/SmokeEffect'
 import Logo from '../assets/Logo.png'
 import finalMB from '../assets/MonkeyBar.jpeg'
-import screenPic from '../assets/OpenMachineScreen.jpg'
+import screenPic from '../assets/BeBack.jpeg'
 
 function Home({setPage}) {
 
