@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import '../Stylesheets/styles.css'
 import '../Stylesheets/contact.css'
 
-const FORM_ENDPOINT = ''
-const INBOX = 'hello@letmehitthat.com'   // <- your real inbox
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit'
+const key = 'c4b8600f-7d30-478c-94d8-d946f5542b43'
+const INBOX = 'hello@letmehitthat.com'
 
 const INTERESTS = [
   {
@@ -85,7 +86,7 @@ function ContactUs({ setPage }) {
     if (!FORM_ENDPOINT) {
       window.location.href = buildMailto()
       setStatus('sent')
-      return
+      //return
     }
 
     setStatus('sending')
@@ -97,12 +98,14 @@ function ContactUs({ setPage }) {
           ...form,
           interests: picked.join(', '),
           _subject: `Vending inquiry — ${form.venue}`,
+          access_key: key,
         }),
       })
       if (!res.ok) throw new Error(res.status)
       setStatus('sent')
       setForm(EMPTY)
       setPicked([])
+      console.log('Contact form sent successfully')
     } catch {
       setStatus('error')
     }

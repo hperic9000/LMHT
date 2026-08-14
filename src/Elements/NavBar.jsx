@@ -19,7 +19,7 @@ function NavBar({setPage}) {
 
       <ul className="navLinks">
         <li><a href="/about" onClick={go('about')}>About</a></li>
-        <li><a className="navCta" href="/contact" onClick={go('contact')}>Work with me</a></li>
+        <li><a className="navCta" href="/contact" onClick={go('contact')}>Contact Us</a></li>
       </ul>
     </nav>
     </>    

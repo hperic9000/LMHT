@@ -3,7 +3,6 @@ import SmokeEffect from '../Elements/SmokeEffect'
 import Logo from '../assets/Logo.png'
 import finalMB from '../assets/MonkeyBar.jpeg'
 import screenPic from '../assets/OpenMachineScreen.jpg'
-import wrap from '../assets/MachineWrap.jpg'
 
 function Home({setPage}) {
 
@@ -21,12 +20,12 @@ function Home({setPage}) {
           <img src={Logo} alt="Vending machine being stocked" />
         </div>
 
-        <h1>Vending machines built for <span className="accent">bars &amp; clubs</span></h1>
+        <h1>Vending machines built <span className="accent">to keep guest satisfied</span></h1>
         <p className="heroSub">
-          Managed by our team, stocked with premium products, Age-verified, and designed to keep your guests happy without ever leaving the room.
+          Fully managed by us, filled with premium products, and designed to keep your guests at your venue. Our smart vending machines are the perfect solution for any venue looking to increase revenue and improve customer satisfaction.
         </p>
         <div className="heroCtas">
-          <a className="btn btnPrimary" href="/contact" onClick={go('contact')}>Work with me</a>
+          <a className="btn btnPrimary" href="/contact" onClick={go('contact')}>Contact Us</a>
           <a className="btn btnGhost" href="#why">See why it works</a>
         </div>
       </header>
@@ -64,7 +63,6 @@ function Home({setPage}) {
         <div className="imgGallery">
           <div className="shot"><img src= {finalMB}></img><div className='imgLabel'>Monkey Bar</div></div>
           <div className="shot"><img src= {screenPic}></img><div className='imgLabel'>Be Back's</div></div>
-          <div className="shot"><img src= {wrap}></img><div className='imgLabel'>Third Bar</div></div>
         </div>
 
         <div className="faqs">
@@ -89,17 +87,27 @@ function Home({setPage}) {
           </details>
 
           <details className="faq">
+            <summary>Are there any contracts or additional costs?</summary>
+            <p>We do not require long-term contracts, and there are no hidden fees or additional costs.</p>
+          </details>
+
+          <details className="faq">
             <summary>What if something doesn't vend correctly?</summary>
             <p>The machine auto-refunds the customer and alerts us instantly so we can troubleshoot.</p>
+          </details>
+
+          <details className="faq">
+            <summary>Where can I get more information about the vending machines?</summary>
+            <p>Our vending machines are distributed by VapeTM and additional details can be found on their website.</p>
           </details>
         </div>
       </div>
 
       <div className="bottomBar">
         <div className="bottomBarContent">
-          <div className="bottomBarItem">Contact Us</div>
-          <div className="bottomBarItem">Privacy Policy</div>
-          <div className="bottomBarItem">Terms of Service</div>
+          <div className="bottomBarItem"><a href="/about" onClick={go('about')}>About</a></div>
+          <div className="bottomBarItem"><a className="navCta" href="/contact" onClick={go('contact')}>Contact Us</a></div>
+          <div className="bottomBarItem"><a href="https://www.instagram.com/aliciajd19/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
         </div>
       </div>
     </>

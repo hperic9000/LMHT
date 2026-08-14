@@ -1,4 +1,5 @@
 import React from 'react'
+import headShot from '../assets/Headshot.png'
 
 function About({setPage}) {
 
@@ -6,8 +7,12 @@ function About({setPage}) {
         <>
             <div>
                 <div className = "hero">About Me</div>
-                <div className = "GifContainer">Headshot will go here</div>
+                <div className="neonRule" />
+                <div className="MePicBox" data-kicker="Managed">
+                    <div className="MePic"><img src= {headShot}></img><div className='imgLabel'>Jace Minix</div></div>
+                </div>
                 <div className = "textContainer">
+                    <div className="neonRule" />
                     <p>
                         I started Let Me Hit That after noticing how often nightlife venues like bars, lounges, and nightclubs, lose business when customers leave for something as simple as a vape or nicotine pouch. I saw an opportunity to keep that business inside while giving customers a quick and convenient option, especially when everything else is closed.
                     </p>
