@@ -1,8 +1,8 @@
 import React from 'react'
 import SmokeEffect from '../Elements/SmokeEffect'
 import Logo from '../assets/Logo.png'
-import finalMB from '../assets/MonkeyBar.jpeg'
-import screenPic from '../assets/BeBack.jpeg'
+import MonkeyBar from '../assets/MonkeyBar.jpeg'
+import BeBack from '../assets/BeBack.jpeg'
 
 function Home({setPage}) {
 
@@ -61,8 +61,8 @@ function Home({setPage}) {
         </div>
 
         <div className="imgGallery">
-          <div className="shot"><img src= {finalMB}></img><div className='imgLabel'>Monkey Bar</div></div>
-          <div className="shot"><img src= {screenPic}></img><div className='imgLabel'>Be Back's</div></div>
+          <div className="shot"><img src= {MonkeyBar}></img><div className='imgLabel'>Monkey Bar</div></div>
+          <div className="shot"><img src= {BeBack}></img><div className='imgLabel'>Be Back's</div></div>
         </div>
 
         <div className="faqs">
