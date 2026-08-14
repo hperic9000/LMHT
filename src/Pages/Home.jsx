@@ -62,7 +62,7 @@ function Home({setPage}) {
 
         <div className="imgGallery">
           <div className="shot"><img src= {MonkeyBar}></img><div className='imgLabel'>Monkey Bar</div></div>
-          <div className="shot"><img src= {BeBack}></img><div className='imgLabel'>Be Back's</div></div>
+          <div className="shot"><img src= {BeBack}></img><div className='imgLabel'>Be Backs</div></div>
         </div>
 
         <div className="faqs">
